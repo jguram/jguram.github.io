@@ -1,10 +1,66 @@
-<script src="https://d3js.org/d3.v4.min.js"></script>
-1st change
-<script>
-  console.log(d3); // test if d3 is loaded
-  // Add an SVG
-  // Add Rectangles
-  // Add Circles
-  // Add Lines
-  // Add Polygons
-</script>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title> D3 tutorial</title>
+	 <script src="http://d3js.org/d3.v4.min.js"></script>
+</head>
+	 
+<body>
+
+      
+	  
+      <script>
+           
+		   var canvas=d3.select("body")
+		              .append("svg")
+					  .attr("width",500)
+					  .attr("height",500);
+					  
+			
+						
+			var circle=canvas.append("circle")
+			            .attr("cx",50)
+						.attr("cy",50)
+						.attr("r",25);
+						
+					    
+            var rect=canvas.append("rect")
+			            .attr("x",75)
+						.attr("y",75)
+						.attr("width",100)
+					    .attr("height",100)
+						.attr("fill","green");
+			
+            var line=canvas.append("line")
+			            .attr("x1",200)
+						.attr("y1",200)
+						.attr("x2",300)
+						.attr("y2",350)
+						.attr("stroke","black")
+						.attr("stroke-width",10);
+						
+            var polygon=canvas.append("polygon")
+			            .attr("points","255,400,300,350,350,400")
+					    .attr("fill","yellow")
+						.attr("stroke","black")
+						.attr("stroke-width",2);						
+         
+						 
+             circle.transition()
+			      .duration(1500)
+				    .delay(1000)
+            .attr("cx", 195)
+				    .transition()
+				    .attr("cy",150)
+				    .transition()
+				    .attr("cx",325)
+				    .attr("cy",350)
+				    .each("start", function() { d3.select(this).attr("fill","red");});
+            
+            			
+      </script> 
+
+</body>
+</html>
