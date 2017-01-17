@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
      <title> D3 tutorial</title>
-	 <script src="http://d3js.org/d3.v4.min.js"></script>
+	 <script src="http://d3js.org/d3.v3.min.js"></script>
 </head>
 	 
 <body>
@@ -35,8 +34,8 @@
 			
             var line=canvas.append("line")
 			            .attr("x1",200)
-						.attr("y1",200)
-						.attr("x2",300)
+						.attr("y1",350)
+						.attr("x2",400)
 						.attr("y2",350)
 						.attr("stroke","black")
 						.attr("stroke-width",10);
@@ -46,19 +45,31 @@
 					    .attr("fill","yellow")
 						.attr("stroke","black")
 						.attr("stroke-width",2);						
-         
-						 
-             circle.transition()
-			      .duration(1500)
-				    .delay(1000)
-            .attr("cx", 195)
-				    .transition()
-				    .attr("cy",150)
-				    .transition()
-				    .attr("cx",325)
-				    .attr("cy",350)
-				    .each("start", function() { d3.select(this).attr("fill","red");});
             
+			
+			circle.transition()
+			      .duration(1500)
+				  .delay(1000)
+                  .attr("cx", 205)
+				  .transition()
+				  .attr("cy",330)
+				  
+				  .each("start", function() { d3.select(this).attr("fill","red");});
+						 
+            line.transition()
+			    .duration(2000)
+				.delay(3000)
+				.attr("x1",200)
+				.attr("y1",300)
+				.attr("x2",400)
+				.attr("y2",400)
+			
+            circle.transition()
+                  .duration(3000)
+				  .delay(3500)
+				  .attr("cx",400)
+				  .attr("cy",365)
+				  .each("end", function() { d3.select(this).attr("fill","blue");});
             			
       </script> 
 
