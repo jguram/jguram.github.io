@@ -4,15 +4,23 @@
 <head>
      <title> D3 tutorial</title>
 	 <script src="http://d3js.org/d3.v3.min.js"></script>
+	 <style>
+        button {
+            position: absolute;
+            margin-left: 250px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 	 
 <body>
 
       
-	  
+	  <button id="start">START</button>
       <script>
            
-		   var canvas=d3.select("body")
+		  
+	        var canvas=d3.select("body")
 		              .append("svg")
 					  .attr("width",500)
 					  .attr("height",500);
@@ -39,6 +47,14 @@
 						.attr("y2",350)
 						.attr("stroke","black")
 						.attr("stroke-width",10);
+			
+            var line2=canvas.append("line")
+                            .attr("x1",400)
+						    .attr("y1",400)
+							.attr("x2",1000)
+							.attr("y2",400)
+							.attr("stroke","black")
+							.attr("stroke-width",10);			
 						
             var polygon=canvas.append("polygon")
 			            .attr("points","255,400,300,350,350,400")
@@ -46,7 +62,7 @@
 						.attr("stroke","black")
 						.attr("stroke-width",2);						
             
-			
+			d3.select('#start').on('click',function(){
 			circle.transition()
 			      .duration(1500)
 				  .delay(1000)
@@ -56,7 +72,8 @@
 				  
 				  .each("start", function() { d3.select(this).attr("fill","red");});
 						 
-            line.transition()
+            
+			line.transition()
 			    .duration(2000)
 				.delay(3000)
 				.attr("x1",200)
@@ -68,9 +85,11 @@
                   .duration(3000)
 				  .delay(3500)
 				  .attr("cx",400)
-				  .attr("cy",365)
+				  .attr("cy",370)
+				  .transition()
+				  .attr("cx",450)
 				  .each("end", function() { d3.select(this).attr("fill","blue");});
-            			
+            });			
       </script> 
 
 </body>
